@@ -1,0 +1,107 @@
+<doctype! html>
+  
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  
+    <title>721 test in file</title>
+    <style>
+body {background-color: Grey}
+
+#stats-area {
+  display: flex;
+ /* background-image: Black;*/
+  color: White;
+  margin: 10px;
+  padding: 10px;
+  font-size: 10px;
+  float: right;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex: 0 24%;
+}
+
+.flex-container {
+  display: flex;
+  background-color: Navy;
+  color: White;
+  margin: 10px;
+  padding: 10px;
+  font-size: 16px;
+  flex-direction: column;
+
+  
+}
+
+#choices {
+  display: flex;
+  flex: flex-grow;
+  flex-basis: 75%;
+  flex-direction: column;
+}
+
+    </style>
+  </head>
+  
+  <body>
+    
+
+  <div class=flex-container id="flextxt">
+    <div id = "stats-area">
+    </div>
+    
+  <p id = "eventtxt">Text box import from Javascript</p>
+  
+  <div id=choices>
+<button id="button1">Testing the results of longer button text. how long does this have to be to test row length?</button><br>
+<button id="button2">Testing the results of longer button text. how long does this have to be to test row length</button><br>
+<button id="button3">String Testing the results of longer button text. how long does this have to be to test row length</button><br>
+<button id="button4">String takes more time to enter copy paste than to add new strimg to test</button><br>
+</div>
+</div>
+    
+    <script>
+    var statsAreaElement = document.getElementById("stats-area")
+    
+    let statNames = ["Build: ", "Create: ", "Know: ", "Persuade: ", "Focus: ", "Integrity: ", "Health: ", "Wealth: "];
+    
+    let currentStats = [
+      0, //build
+      0, //create
+      -2, //know
+      0, //persuadee
+      0,//focus
+      2, //integrity
+      10, //health
+      1 //wealth
+    ];
+    
+    startGame()
+    
+//Startgame function
+
+function startGame()
+{
+  statsRefresh()
+}
+    
+    
+    function questSelect() 
+    {
+      
+      
+    }
+    
+function randomIntFromInterval(min, max) { // min and max included 
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+
+function statsRefresh() 
+{statsAreaElement.innerHTML=""
+    for(let i = 0; i < currentStats.length; i++)
+    {
+    statsAreaElement.innerHTML+=("<div>" + statNames[i] + currentStats[i] + "</div>")
+    }
+    }
+    </script>
+    </body>
