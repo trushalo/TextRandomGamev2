@@ -22,7 +22,7 @@ body {background-color: Grey}
 
 .flex-container {
   display: flex;
-  background-color: Navy;
+  background-color: rgb(65, 65, 68);;
   color: White;
   margin: 10px;
   padding: 10px;
@@ -49,13 +49,16 @@ body {background-color: Grey}
     <div id = "stats-area">
     </div>
     
-  <p id = "eventtxt">Text box import from Javascript</p>
+  <p id = "eventtxt">You're standing in a busy metal bay. You can see some boxy looking ships undergoing maintenance. 
+    The big ones are corporate ships. Which corporation? Who knows? They don't bother putting advertising labels on vessels that no one of importance sees.
+  The smaller ships are a little sleeker and range from cargo-haulers, to mining ships, to clippers. If this were a nicer spaceport you might see luxury vessels or military vessels but here any heavily armed vessel would stand out as a pirate and be destroyed before approach by the mining station's missile arrays or flak cannons.
+Still, you are here for a reason. What are you going to do?</p>
   
   <div id=choices>
-<button id="button1">Testing the results of longer button text. how long does this have to be to test row length?</button><br>
-<button id="button2">Testing the results of longer button text. how long does this have to be to test row length</button><br>
-<button id="button3">String Testing the results of longer button text. how long does this have to be to test row length</button><br>
-<button id="button4">String takes more time to enter copy paste than to add new strimg to test</button><br>
+<button id="button1">Survey the ships carefully. You're looking for a vessel without much security and clearly empty. You spot a vessel that could be charitably described as looking like a giant toaster marinated in guacomole with an old security system that you recognize. It seems well maintained enough; you'd be willing to put even odds you could fly it out of here. Do you want to steal it?</button><br>
+<button id="button2">Walk down to the merchant on the other end of the bay. They are selling an array of vessels with standard used ship sales guano. You've put away every penny you could earn for ten years to get off this shithole station. If you start out in a piece of shit ship it'll still be worth it.</button><br>
+<button id="button3">Walk down to the merchant on the other end of the bay. They are selling an array of vessels with standard used ship sales guano. You emptied your ex's bank accounts and have enough to buy a cheap ship. You'll be flying in a piece of shit but it'll be more comfortable than being sent to the mining facilities for debt like your ex.</button><br>
+<button id="button4">Run quickly to the merchant at the other end of the bay. Buy a fast ship, fast. You got "lucky" today and found out you could drain a fully loaded account at the corporation where you work; used to work. Now you have 20 years of salary in your pocket and a slight chance of living through the week on this station. Blowing every stolen credit on the fastest ship is your best chance of staying corporeal.</button><br>
 </div>
 </div>
     
@@ -68,12 +71,17 @@ body {background-color: Grey}
       0, //build
       0, //create
       -2, //know
-      0, //persuadee
+      0, //persuade
       0,//focus
       2, //integrity
       10, //health
       1 //wealth
     ];
+
+    let invisibleStats = [
+      {heat: 0},
+      {corporateStatus: 0}
+    ]
     
     startGame()
     
@@ -81,20 +89,66 @@ body {background-color: Grey}
 
 function startGame()
 {
-  statsRefresh()
+  
 }
-    
+
     
     function questSelect() 
     {
       
       
     }
+
+    function optionSelect()
+     {
+
+     }
+
+/*     function showTextNode(textNodeIndex) {
+  const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
+  textElement.innerText = textNode.text;
+  while (optionButtonsElement.firstChild) {
+    optionButtonsElement.removeChild(optionButtonsElement.firstChild)
+  };
+    textNode.options.forEach(option => {
+    if (showOption(option)) {
+      const button = document.createElement('button')
+      button.innerText = option.text
+      button.classList.add('btn')
+      button.addEventListener('click', () => selectOption(option))
+      optionButtonsElement.appendChild(button)
+    };
+  });
+}
+
+function showOption(option) {
+  return option.requiredState == null || option.requiredState(state)
+}
+  
+  */
     
 function randomIntFromInterval(min, max) { // min and max included 
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+
+//use getRandom(arr, n) to pull only n number of items from an array
+function getRandom(arr, n) {
+    var result = new Array(n),
+        len = arr.length,
+        taken = new Array(len);
+    if (n > len)
+        throw new RangeError("getRandom: more elements taken than available");
+    while (n--) {
+        var x = Math.floor(Math.random() * len);
+        result[n] = arr[x in taken ? taken[x] : x];
+        taken[x] = --len in taken ? taken[len] : len;
+    }
+    return result;
+}
+
+let testarray = ['hap','py','day','s','are','here','a','gain','!',9]
+console.log(getRandom(testarray,4))
 
 function statsRefresh() 
 {statsAreaElement.innerHTML=""
