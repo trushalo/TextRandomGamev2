@@ -68,12 +68,12 @@ Still, you are here for a reason. What are you going to do?</p>
     let statNames = ["Build: ", "Create: ", "Know: ", "Persuade: ", "Focus: ", "Integrity: ", "Health: ", "Wealth: "];
     
     let currentStats = [
-      0, //build
-      0, //create
-      -2, //know
-      0, //persuade
-      0,//focus
-      2, //integrity
+      4, //build
+      4, //create
+      4, //know
+      4, //persuade
+      4,//focus
+      4, //integrity
       10, //health
       1 //wealth
     ];
@@ -131,24 +131,24 @@ function randomIntFromInterval(min, max) { // min and max included
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-
-//use getRandom(arr, n) to pull only n number of items from an array
-function getRandom(arr, n) {
-    var result = new Array(n),
-        len = arr.length,
-        taken = new Array(len);
-    if (n > len)
-        throw new RangeError("getRandom: more elements taken than available");
-    while (n--) {
-        var x = Math.floor(Math.random() * len);
-        result[n] = arr[x in taken ? taken[x] : x];
-        taken[x] = --len in taken ? taken[len] : len;
-    }
-    return result;
+function choiceRoll(mod){
+  return (randomIntFromInterval(1,6) + randomIntFromInterval(1,6) + currentStats[mod]) - 2
+};
+/*function testRand() {
+for(let i = 4; i>=0; i--)
+{
+ console.log(choiceRoll(currentStats[i]) +" " + statNames[i] + currentStats[i])
+}
 }
 
-let testarray = ['hap','py','day','s','are','here','a','gain','!',9]
-console.log(getRandom(testarray,4))
+testRand()*/
+
+
+//console.log(choiceRoll(2))
+
+
+//let testarray = ['hap','py','day','s','are','here','a','gain','!',9]
+//console.log(getRandom(testarray,4))
 
 function statsRefresh() 
 {statsAreaElement.innerHTML=""
