@@ -105,16 +105,17 @@ function startGame()
      }
      
      let objectOption1 = {
-       options: [],
+       options: ['text1', 'text2', 'yext3', 'text4', 'text5'],
      displayText:  "Set option results for theft of ship."
      }
 
 document.getElementById("button1").addEventListener("click", function () {
   document.getElementById("eventtxt").innerHTML = objectOption1.displayText;
-document.getElementById("button1").innerHTML = "text1";
-document.getElementById("button2").innerHTML = "text2";
-document.getElementById("button3").innerHTML = "text3";
-document.getElementById("button4").innerHTML = "text4";
+  let optionLimitArray = getRandom(objectOption1.options, 4)
+document.getElementById("button1").innerHTML = optionLimitArray[0];
+document.getElementById("button2").innerHTML = optionLimitArray[1];
+document.getElementById("button3").innerHTML = optionLimitArray[2];
+document.getElementById("button4").innerHTML = optionLimitArray[3];
 });
 
 /*     function showTextNode(textNodeIndex) {
