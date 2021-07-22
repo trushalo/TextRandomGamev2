@@ -103,6 +103,19 @@ function startGame()
      {
 
      }
+     
+     let objectOption1 = {
+       options: [],
+     displayText:  "Set option results for theft of ship."
+     }
+
+document.getElementById("button1").addEventListener("click", function () {
+  document.getElementById("eventtxt").innerHTML = objectOption1.displayText;
+document.getElementById("button1").innerHTML = "text1";
+document.getElementById("button2").innerHTML = "text2";
+document.getElementById("button3").innerHTML = "text3";
+document.getElementById("button4").innerHTML = "text4";
+});
 
 /*     function showTextNode(textNodeIndex) {
   const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
