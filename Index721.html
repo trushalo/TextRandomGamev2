@@ -68,15 +68,17 @@ Still, you are here for a reason. What are you going to do?</p>
     let statNames = ["Build: ", "Create: ", "Know: ", "Persuade: ", "Focus: ", "Integrity: ", "Health: ", "Wealth: "];
     
     let currentStats = [
-      4, //build
-      4, //create
-      4, //know
-      4, //persuade
-      4,//focus
-      4, //integrity
+      0, //build
+      0, //create
+      0, //know
+      0, //persuade
+      0,//focus
+      0, //integrity
       10, //health
-      1 //wealth
+      0 //wealth
     ];
+    
+    let tools = []
 
     let invisibleStats = [
       {heat: 0},
@@ -109,10 +111,10 @@ function startGame()
          this.displayText = displayText;
          this.text1 = text1;
          this.text2 = text2;
-this.text3 = text3;
-this.text4 = text4;
+         this.text3 = text3;
+         this.text4 = text4;
        }
-       method
+       
      }
      
      let objectOption1 = {
