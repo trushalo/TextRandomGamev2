@@ -1,4 +1,4 @@
-<doctype! html>
+<!DOCTYPE html>
   
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -115,32 +115,70 @@ function startGame()
      class OptionClick {
        constructor(displayText, optionArray) {
          this.displayText = displayText;
-         this.optionArray = optionArray
-       }
-       
-     }
+         this.optionArray = optionArray;
+//SECTION OF THE OBJECT IN TEST BELOW THIS LINE 07/27/2021
+document.getElementById("button1").addEventListener("click", function () {
+  document.getElementById("eventtxt").innerHTML = option1.displayText;
+  let optionLimitArray = getRandom(option1.optionArray, 4)
+document.getElementById("button1").innerHTML = optionLimitArray[0].text;
+document.getElementById("button2").innerHTML = optionLimitArray[1].text;
+document.getElementById("button3").innerHTML = optionLimitArray[2].text;
+document.getElementById("button4").innerHTML = optionLimitArray[3].text;
+});
 
-     //Initial story items
-     
-     let objectOption1 = new OptionClick ("You walk toward the disgusting looking ship. It isn't actually as bad as it looks, even if it is so pocked and putrifying that it makes you a little sick. The engine is class 2, it has a basic mining grapple, the engine apparatus looks unlikely to explode, and the pock marks are mainly just dents in a tritanium alloy armor. There just are not any nicities or flourishes and that includes a defense system. There is only a standard heavy duty padlock. What do you do?",
+         
+};
+};
+
+     //Introduction scene
+     let optionNewShip = new OptionClick ('You have a new ship')
+     let option0 = new OptionClick ("The merchant pitches an array of ships at you. You weed out the ones way outside your budget to the following. What do you do?",
+     [{text: 'Fast ship with guns and no cargo' 
+      , nextNode: optionNewShip
+      , cost: 8
+      , ship: 'interceptor1'}, 
+     {text: 'Discount courier shuttle'
+      , nextNode: optionNewShip
+      , cost: 6
+      , ship: "shuttle1"}, 
+     {text: 'Rickety freighter'
+     , nextNode: optionNewShip
+     , cost: 10
+     , ship: 'freighter1'},
+     {text: 'Mining ship'
+     , nextNode: optionNewShip
+     , ship: 'miner1'}])
+
+     let option2 = new OptionClick ()
+     let option3 = new OptionClick ()
+     let option4 = new OptionClick ()
+     let option5 = new OptionClick ()
+     let option6 = new OptionClick ()
+     let option7 = new OptionClick ()
+
+     let option1 = new OptionClick ("You walk toward the disgusting looking ship. It isn't actually as bad as it looks, even if it is so pocked and putrifying that it makes you a little sick. The engine is class 2, it has a basic mining grapple, the engine apparatus looks unlikely to explode, and the pock marks are mainly just dents in a tritanium alloy armor. There just are not any nicities or flourishes and that includes a defense system. There is only a standard heavy duty padlock. What do you do?",
      [{text: 'Take a swig of the ethanol in your flask and grab the welder laying on the floor. Act like you are just doing regular maintenance as you melt that padlock away then walk inside, request departure from control and fly off the station.' 
-      , nextNode: 2
+      , nextNode: option5
       , risk: -3
       , stat: 4}, 
      {text: 'Take a seat reading a book and wait patiently until the bay area looks clear. Go up and take a few precesion photos of the locking mechanism and come back to ask a few acquaintances to take a look at the lock and recommend the best way to break it.'
-      , nextNode: 3
+      , nextNode: option6
       , risk: 0
       , stat: 3}, 
      {text: 'Take out the somewhat bulky all-purpose scanner from your bag. It cost you half a year of labor (2 kilocreds). If someone sees you it will look suspicious but the scanner will tell if anyone is inside and get you the composition of the lock to see if you could break it with the other tools in the bag.'
-     , nextNode: 4
+     , nextNode: option4
      , risk: 2
      , stat: 3},
      {text: 'Screw it, this is too risky. You have some money saved up. You walk toward the merchant to buy a cheaper ship without starting your spacefaring career with a theft.'
-     , nextNode: 5}])
+     , nextNode: option0}])
+
+
+
+
   
 document.getElementById("button1").addEventListener("click", function () {
-  document.getElementById("eventtxt").innerHTML = objectOption1.displayText;
-  let optionLimitArray = getRandom(objectOption1.optionArray, 4)
+  document.getElementById("eventtxt").innerHTML = option1.displayText;
+  let optionLimitArray = getRandom(option1.optionArray, 4)
 document.getElementById("button1").innerHTML = optionLimitArray[0].text;
 document.getElementById("button2").innerHTML = optionLimitArray[1].text;
 document.getElementById("button3").innerHTML = optionLimitArray[2].text;
