@@ -84,6 +84,12 @@ Still, you are here for a reason. What are you going to do?</p>
     description: 'This is an old scanner used to detect anything and everything. It is very useful but a little bulky and expensive.',
     available: false}
     ]
+    
+    
+    
+    let ships = []
+    
+    let ship = []
   
 
     let invisibleStats = [
@@ -118,8 +124,8 @@ function startGame()
          this.optionArray = optionArray;
 //SECTION OF THE OBJECT IN TEST BELOW THIS LINE 07/27/2021
 document.getElementById("button1").addEventListener("click", function () {
-  document.getElementById("eventtxt").innerHTML = option1.displayText;
-  let optionLimitArray = getRandom(option1.optionArray, 4)
+  document.getElementById().innerHTML = this.displayText;
+  let optionLimitArray = getRandom(this.optionArray, 4)
 document.getElementById("button1").innerHTML = optionLimitArray[0].text;
 document.getElementById("button2").innerHTML = optionLimitArray[1].text;
 document.getElementById("button3").innerHTML = optionLimitArray[2].text;
