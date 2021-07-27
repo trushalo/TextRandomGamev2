@@ -68,11 +68,11 @@ Still, you are here for a reason. What are you going to do?</p>
     let statNames = ["Build: ", "Create: ", "Know: ", "Persuade: ", "Focus: ", "Integrity: ", "Health: ", "Wealth: "];
     
     let currentStats = [
-      randomIntFromInterval(0,4), //build
-      randomIntFromInterval(0,4), //create
-      randomIntFromInterval(0,4), //know
-      0, //persuade
-      0,//focus
+      randomIntFromInterval(0,3), //build
+      randomIntFromInterval(0,3), //create
+      randomIntFromInterval(0,3), //know
+      randomIntFromInterval(0,3), //persuade
+      randomIntFromInterval(0,3),//focus
       0, //integrity
       10, //health
       0 //wealth
@@ -205,5 +205,7 @@ function statsRefresh()
     statsAreaElement.innerHTML+=("<div>" + statNames[i] + currentStats[i] + "</div>")
     }
     }
+
+    statsRefresh()
     </script>
     </body>
