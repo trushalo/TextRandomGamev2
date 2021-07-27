@@ -11,7 +11,7 @@ body {background-color: Grey}
   display: flex;
  /* background-image: Black;*/
   color: White;
-  margin: 10pxvvcZFXDXRDSFSSSXCHGW
+  margin: 10px;
   padding: 10px;
   font-size: 10px;
   float: right;
@@ -81,7 +81,7 @@ Still, you are here for a reason. What are you going to do?</p>
     let tools = [
       {name: 'handheld scanner',
     owned: false,
-    description: 'This is an old scanner used to detect life-forms by heat and carbon-dioxide levels. It is very useful but a little bulky and expensive.',
+    description: 'This is an old scanner used to detect anything and everything. It is very useful but a little bulky and expensive.',
     available: false}
     ]
   
@@ -113,28 +113,38 @@ function startGame()
      }
      
      class OptionClick {
-       constructor(displayText, text1, text2, text3, text4) {
+       constructor(displayText, optionArray) {
          this.displayText = displayText;
-         this.text1 = text1;
-         this.text2 = text2;
-         this.text3 = text3;
-         this.text4 = text4;
+         this.optionArray = optionArray
        }
        
      }
-     
-     let objectOption1 = {
-       options: ['text1', 'text2', 'yext3', 'text4', 'text5'],
-     displayText:  "Set option results for theft of ship."
-     }
 
+     //Initial story items
+     
+     let objectOption1 = new OptionClick ("You walk toward the disgusting looking ship. It isn't actually as bad as it looks, even if it is so pocked and putrifying that it makes you a little sick. The engine is class 2, it has a basic mining grapple, the engine apparatus looks unlikely to explode, and the pock marks are mainly just dents in a tritanium alloy armor. There just are not any nicities or flourishes and that includes a defense system. There is only a standard heavy duty padlock. What do you do?",
+     [{text: 'Take a swig of the ethanol in your flask and grab the welder laying on the floor. Act like you are just doing regular maintenance as you melt that padlock away then walk inside, request departure from control and fly off the station.' 
+      , nextNode: 2
+      , risk: -3
+      , stat: 4}, 
+     {text: 'Take a seat reading a book and wait patiently until the bay area looks clear. Go up and take a few precesion photos of the locking mechanism and come back to ask a few acquaintances to take a look at the lock and recommend the best way to break it.'
+      , nextNode: 3
+      , risk: 0
+      , stat: 3}, 
+     {text: 'Take out the somewhat bulky all-purpose scanner from your bag. It cost you half a year of labor (2 kilocreds). If someone sees you it will look suspicious but the scanner will tell if anyone is inside and get you the composition of the lock to see if you could break it with the other tools in the bag.'
+     , nextNode: 4
+     , risk: 2
+     , stat: 3},
+     {text: 'Screw it, this is too risky. You have some money saved up. You walk toward the merchant to buy a cheaper ship without starting your spacefaring career with a theft.'
+     , nextNode: 5}])
+  
 document.getElementById("button1").addEventListener("click", function () {
   document.getElementById("eventtxt").innerHTML = objectOption1.displayText;
-  let optionLimitArray = getRandom(objectOption1.options, 4)
-document.getElementById("button1").innerHTML = optionLimitArray[0];
-document.getElementById("button2").innerHTML = optionLimitArray[1];
-document.getElementById("button3").innerHTML = optionLimitArray[2];
-document.getElementById("button4").innerHTML = optionLimitArray[3];
+  let optionLimitArray = getRandom(objectOption1.optionArray, 4)
+document.getElementById("button1").innerHTML = optionLimitArray[0].text;
+document.getElementById("button2").innerHTML = optionLimitArray[1].text;
+document.getElementById("button3").innerHTML = optionLimitArray[2].text;
+document.getElementById("button4").innerHTML = optionLimitArray[3].text;
 });
 
 /*     function showTextNode(textNodeIndex) {
@@ -209,3 +219,4 @@ function statsRefresh()
     statsRefresh()
     </script>
     </body>
+ 
